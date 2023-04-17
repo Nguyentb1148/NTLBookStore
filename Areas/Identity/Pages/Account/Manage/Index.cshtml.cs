@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using NTLBookStore.Areas.Identity.Data;
+using NTLBookStore.Models;
 
 namespace NTLBookStore.Areas.Identity.Pages.Account.Manage
 {
@@ -59,6 +59,16 @@ namespace NTLBookStore.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+            
+            [Required]
+            [Display(Name = "Full Name")]
+            [StringLength(50)]
+            public string FullName { get; set; } = null!;
+
+            [Required]
+            [Display(Name = "Home Address")]
+            [StringLength(100)]
+            public string HomeAddress { get; set; } = null!;
         }
 
         private async Task LoadAsync(ApplicationUser user)
@@ -70,7 +80,9 @@ namespace NTLBookStore.Areas.Identity.Pages.Account.Manage
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = user.PhoneNumber,
+                HomeAddress = user.HomeAddress,
+                FullName =user.FullName
             };
         }
 
@@ -109,6 +121,17 @@ namespace NTLBookStore.Areas.Identity.Pages.Account.Manage
                     StatusMessage = "Unexpected error when trying to set phone number.";
                     return RedirectToPage();
                 }
+            }
+            user.FullName = Input.FullName;
+            user.PhoneNumber = Input.PhoneNumber;
+
+            user.HomeAddress = Input.HomeAddress;
+            var updateResult = await _userManager.UpdateAsync(user);
+
+            if (!updateResult.Succeeded)
+            {
+                StatusMessage = "Unexpected error when trying to update profile";
+                return RedirectToPage();
             }
 
             await _signInManager.RefreshSignInAsync(user);

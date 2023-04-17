@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using NTLBookStore.Areas.Identity.Data;
+using NTLBookStore.Models;
 
 namespace NTLBookStore.Areas.Identity.Pages.Account
 {

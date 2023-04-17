@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using NTLBookStore.Areas.Identity.Data;
+using NTLBookStore.Models;
 
 namespace NTLBookStore.Areas.Identity.Pages.Account
 {
