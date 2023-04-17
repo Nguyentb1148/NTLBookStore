@@ -16,7 +16,8 @@ public class Order
     public string FullName { get; set; } = null!;
 
     [StringLength(20)]
-    public string PhoneNumber { get; set; } = null!; public string StoreId { get; set; } = null!;
+    public string PhoneNumber { get; set; } = null!; 
+    public string StoreId { get; set; } = null!;
 
     [StringLength(20)]
     public string Status { get; set; } = "Pending";

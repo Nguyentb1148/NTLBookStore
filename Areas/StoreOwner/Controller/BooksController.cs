@@ -84,8 +84,12 @@ namespace NTLBookStore.Areas.StoreOwner.Controller;
                 var book = new Book()
                 {
                     Title = model.Title,
+                    Author = model.Author,
+                    ReleaseDate = model.ReleaseDate,
+                    Page = model.Page,
+                    Description = model.Description,
                     Price = model.Price,
-                    StoreId = model.StoreId,
+                    StoreId = StoreId, // Set the StoreId property to the current user's Id
                     CategoryId = model.CategoryId,
                     Image = new(model.UploadImage.FileName, extension),
                 };
@@ -104,6 +108,7 @@ namespace NTLBookStore.Areas.StoreOwner.Controller;
             ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Id", model.CategoryId);
             return View(model);
         }
+
 
         public async Task<IActionResult> Edit(int? id)
         {
@@ -166,16 +171,11 @@ namespace NTLBookStore.Areas.StoreOwner.Controller;
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Books == null)
-            {
-                return Problem("Entity set 'ApplicationDbContext.Books'  is null.");
-            }
             var book = await _context.Books.FindAsync(id);
             if (book != null)
             {
                 _context.Books.Remove(book);
             }
-
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

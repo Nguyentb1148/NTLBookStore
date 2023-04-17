@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using NTLBookStore.AutoCreateDB;
 using NTLBookStore.Data;
 using NTLBookStore.Helpers;
 using NTLBookStore.Models;
@@ -18,15 +19,18 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<NTLBookStoreContext>();
 
+builder.Services.AddScoped<IAutoCreateDb, AutoCreateDb>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
+
+
 using (var scope = app.Services.CreateScope())
 {
-    var sp = scope.ServiceProvider;
-    await SeedData.SeedAsync(sp);
+    var dbInitializer = scope.ServiceProvider.GetRequiredService<IAutoCreateDb>();
+    dbInitializer.CreateDb();
 }
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

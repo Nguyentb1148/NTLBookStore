@@ -21,6 +21,6 @@ public class ApplicationUser : IdentityUser
     [StringLength(100)]
     public override string PhoneNumber { get; set; } = null!;
     
-    // [NotMapped] public Roles Roles { get; set; }
+    [NotMapped] public string Role { get; set; }
 }
 

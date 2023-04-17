@@ -34,10 +34,34 @@
         <hr />
         <dl class="row">
             <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+            <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Category)
             </dt>
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.Category.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Author)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Author)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ReleaseDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ReleaseDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Page)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Page)
             </dd>
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Price)
@@ -51,6 +75,13 @@
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.Store.Name)
             </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            
         </dl>
         <div>
             <button id="addToCartBtn" class="btn btn-primary px-1" onclick="addItem(@Model.Id, 1)">Add</button>

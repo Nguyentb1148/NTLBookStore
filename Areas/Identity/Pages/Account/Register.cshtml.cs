@@ -30,6 +30,7 @@ namespace NTLBookStore.Areas.Identity.Pages.Account
         private readonly IUserStore<ApplicationUser> _userStore;
         private readonly IUserEmailStore<ApplicationUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IEmailSender _emailSender;
 
         public RegisterModel(
@@ -37,7 +38,9 @@ namespace NTLBookStore.Areas.Identity.Pages.Account
             IUserStore<ApplicationUser> userStore,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            RoleManager<IdentityRole> roleManage
+            )
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -45,6 +48,7 @@ namespace NTLBookStore.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _roleManager = roleManage;
         }
 
         /// <summary>
@@ -113,15 +117,18 @@ namespace NTLBookStore.Areas.Identity.Pages.Account
             public string PhoneNumber { get; set; }
             [Required]
             public string Role { get; set; }
+            
+            public IEnumerable<SelectListItem> Roles { get; set; }            
         }
-        public List<SelectListItem> Roles { get; } = new()
-        {
-            new("Customer", Helpers.Roles.User),
-            new("Store Owner", Helpers.Roles.StoreOwner),
-        };
+        // public List<SelectListItem> Roles { get; } = new()
+        // {
+        //     new("Customer", Helpers.Roles.User),
+        //     new("Store Owner", Helpers.Roles.StoreOwner),
+        // };
 
         public async Task OnGetAsync(string returnUrl = null)
         {
+            GetRoles();
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
@@ -139,11 +146,24 @@ namespace NTLBookStore.Areas.Identity.Pages.Account
                 user.FullName = Input.FullName;
                 user.HomeAddress = Input.HomeAddress;
                 user.PhoneNumber = Input.PhoneNumber;
+                
                 // user.Roles = Input.Role;
                 var result = await _userManager.CreateAsync(user, Input.Password);
                
                 if (result.Succeeded)
                 {
+                    _logger.LogInformation("User created a new account with password.");
+
+                    if (Input.Role == "User")
+                    {
+                        await _userManager.AddToRolesAsync(user, new[] { "User" });
+                    }
+                    
+                    if (Input.Role == "StoreOwner")
+                    {
+                        await _userManager.AddToRolesAsync(user, new[] { "StoreOwner" });
+                    }
+                    
                     _logger.LogInformation("User created a new account with password.");
 
                     var userId = await _userManager.GetUserIdAsync(user);
@@ -173,6 +193,8 @@ namespace NTLBookStore.Areas.Identity.Pages.Account
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
+            
+            GetRoles();
 
             // If we got this far, something failed, redisplay form
             return Page();
@@ -199,6 +221,20 @@ namespace NTLBookStore.Areas.Identity.Pages.Account
                 throw new NotSupportedException("The default UI requires a user store with email support.");
             }
             return (IUserEmailStore<ApplicationUser>)_userStore;
+        }
+        
+        
+        private void GetRoles()
+        {
+            Input = new InputModel()
+            {
+                Roles = _roleManager.Roles.Where(x => x.Name != "Admin")
+                    .Select(x => x.Name).Select(x => new SelectListItem()
+                    {
+                        Text = x,
+                        Value = x
+                    })
+            };
         }
     }
 }

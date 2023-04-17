@@ -30,9 +30,10 @@ namespace NTLBookStore.Areas.Admin.Controller;
         {
             var users = await userManager.GetUsersInRoleAsync(Roles.User);
 
-            ViewData["Title"] = "Customer Accounts";
+            ViewData["Title"] = "User Accounts";
             ViewData["ReturnUrl"] = HttpContext.Request.Path;
             return View("Users", users);
+        
         }
 
         public async Task<ActionResult> StoreOwners()

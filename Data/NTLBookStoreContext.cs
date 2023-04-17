@@ -25,8 +25,11 @@ public class NTLBookStoreContext : IdentityDbContext<ApplicationUser>
 
     public DbSet<Order> Orders { get; set; } = null!;
 
+    
     public DbSet<OrderItem> OrderItems { get; set; } = null!;
 
+    public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+    
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.Entity<Category>()
