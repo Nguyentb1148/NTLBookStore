@@ -8,37 +8,37 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = NTLBookStore
 build_property.RootNamespace = NTLBookStore
-build_property.ProjectDir = C:\Users\Adminstratos\NTLBookStore\
+build_property.ProjectDir = C:\Users\Admin\NTLBookStore\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Adminstratos\NTLBookStore
+build_property.MSBuildProjectDirectory = C:\Users\Admin\NTLBookStore
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Adminstratos/NTLBookStore/Views/Home/Index.cshtml]
+[C:/Users/Admin/NTLBookStore/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adminstratos/NTLBookStore/Views/Home/Privacy.cshtml]
+[C:/Users/Admin/NTLBookStore/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adminstratos/NTLBookStore/Views/Shared/Error.cshtml]
+[C:/Users/Admin/NTLBookStore/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adminstratos/NTLBookStore/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Admin/NTLBookStore/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adminstratos/NTLBookStore/Views/_ViewImports.cshtml]
+[C:/Users/Admin/NTLBookStore/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adminstratos/NTLBookStore/Views/_ViewStart.cshtml]
+[C:/Users/Admin/NTLBookStore/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Adminstratos/NTLBookStore/Views/Shared/_Layout.cshtml]
+[C:/Users/Admin/NTLBookStore/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-favqz1q0eb
