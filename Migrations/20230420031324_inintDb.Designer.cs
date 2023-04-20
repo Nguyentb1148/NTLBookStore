@@ -12,7 +12,7 @@ using NTLBookStore.Data;
 namespace NTLBookStore.Migrations
 {
     [DbContext(typeof(NTLBookStoreContext))]
-    [Migration("20230419075357_inintDb")]
+    [Migration("20230420031324_inintDb")]
     partial class inintDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/css/home.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/NTLBookStore.styles.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="../wwwroot/css/Test.css" asp-append-version="true"/>
 </head>
 <body>
 <header>
@@ -55,9 +56,7 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="Index">Orders</a>
                             </li>
-                            <div class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Cart" asp-action="Index">Cart</a>
-                            </div>
+                            
                         }
                     </ul>
                     @if (User.Identity?.IsAuthenticated is false or null || User.IsInRole(Roles.User))
