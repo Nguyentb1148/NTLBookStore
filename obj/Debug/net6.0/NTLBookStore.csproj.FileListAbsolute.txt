@@ -877,3 +877,15 @@ C:\Users\Admin\NTLBookStore\obj\Debug\net6.0\refint\NTLBookStore.dll
 C:\Users\Admin\NTLBookStore\obj\Debug\net6.0\NTLBookStore.pdb
 C:\Users\Admin\NTLBookStore\obj\Debug\net6.0\NTLBookStore.genruntimeconfig.cache
 C:\Users\Admin\NTLBookStore\obj\Debug\net6.0\ref\NTLBookStore.dll
+C:\Users\Adminstratos\NTLBookStore\obj\Debug\net6.0\NTLBookStore.csproj.AssemblyReference.cache
+C:\Users\Adminstratos\NTLBookStore\obj\Debug\net6.0\NTLBookStore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Adminstratos\NTLBookStore\obj\Debug\net6.0\NTLBookStore.AssemblyInfoInputs.cache
+C:\Users\Adminstratos\NTLBookStore\obj\Debug\net6.0\NTLBookStore.AssemblyInfo.cs
+C:\Users\Adminstratos\NTLBookStore\obj\Debug\net6.0\NTLBookStore.csproj.CoreCompileInputs.cache
+C:\Users\Adminstratos\NTLBookStore\obj\Debug\net6.0\NTLBookStore.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Adminstratos\NTLBookStore\obj\Debug\net6.0\NTLBookStore.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Adminstratos\NTLBookStore\obj\Debug\net6.0\NTLBookStore.RazorAssemblyInfo.cache
+C:\Users\Adminstratos\NTLBookStore\obj\Debug\net6.0\NTLBookStore.RazorAssemblyInfo.cs
+C:\Users\Adminstratos\NTLBookStore\obj\Debug\net6.0\NTLBookStore.dll
+C:\Users\Adminstratos\NTLBookStore\obj\Debug\net6.0\refint\NTLBookStore.dll
+C:\Users\Adminstratos\NTLBookStore\obj\Debug\net6.0\NTLBookStore.pdb
