@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using NTLBookStore.AutoCreateDB;
+using NTLBookStore.Controllers;
 using NTLBookStore.Data;
 using NTLBookStore.Helpers;
 using NTLBookStore.Models;
+using NTLBookStore.Repo;
 
 var builder = WebApplication.CreateBuilder(args);
 if (!Directory.Exists(FileUploadHelper.BookImageBaseDirectory))
@@ -18,6 +20,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<NTLBookStoreContext>();
+builder.Services.AddScoped<IBookRepository, BookRepository>();
 
 builder.Services.AddScoped<IAutoCreateDb, AutoCreateDb>();
 // Add services to the container.

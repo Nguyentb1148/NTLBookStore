@@ -52,4 +52,54 @@ public class BooksController : Controller
 
         return View(book);
     }
+    // GET: Books/SearchByBook
+    public IActionResult SearchByBook(string keyword)
+    {
+        if (string.IsNullOrEmpty(keyword))
+        {
+            return RedirectToAction(nameof(Index));
+        }
+
+        var books = _context.Books
+            .Include(b => b.Category)
+            .Include(b => b.Image)
+            .Where(b => b.Title.ToLower().Contains(keyword.ToLower()))
+            .ToList();
+
+        var model = new SearchViewModel
+        {
+            KeyWord = keyword,
+            Books = books
+        };
+
+        return View("SearchResult", model);
+    }
+
+// GET: Books/SearchByCategory
+    public IActionResult SearchByCategory(string category)
+    {
+        if (string.IsNullOrEmpty(category))
+        {
+            return RedirectToAction(nameof(Index));
+        }
+
+        var books = _context.Books
+            .Include(b => b.Category)
+            .Include(b => b.Image)
+            .Where(b => b.Category.Name.ToLower() == category.ToLower())
+            .ToList();
+
+        var model = new SearchViewModel
+        {
+            BookCategory = category,
+            Books = books
+        };
+
+        return View("SearchResult", model);
+    }
+
+    public IActionResult Help()
+    {
+        return View();
+    }
 }
