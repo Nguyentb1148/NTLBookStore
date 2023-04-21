@@ -60,7 +60,9 @@ nav ul li{
 }
 .dropdown-content a:hover {background-color: #f1f1f1;}
 
-.dropbtn a:hover {color: #f1f1f1;}
+li a:hover, .account:hover .dropbtn {
+    color: #00986f;
+}
 .account:hover .dropdown-content {
     display: block;
     border-radius: 0px 0px 5px 5px;
