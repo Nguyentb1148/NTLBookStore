@@ -20,6 +20,8 @@ nav{
 }
 
 nav ul{
+/*    list-style-type: none;*/
+/*    overflow: hidden;*/
     flex: 1;
     text-align: right;
     padding-top: 15px;
@@ -31,6 +33,39 @@ nav ul li{
     margin:  0 20px;
 
 }
+
+.dropbtn {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 70px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 5px 12px 5px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropbtn a:hover {color: #f1f1f1;}
+.account:hover .dropdown-content {
+    display: block;
+    border-radius: 0px 0px 5px 5px;
+}
+
 #logo{
     display: inline-block;
     text-decoration: none;
@@ -63,7 +98,8 @@ span {
 }
 
 .lamp{
-    width: 120%;
+    width: 110%;
+    margin-left: -20px;
 }
 
 .light{
@@ -72,19 +108,19 @@ span {
     left: 50%;
     transform: translate(-50%);
     width: 850px;
-    margin-left: 6px;
+    margin-left: -20px;
     opacity: 0;
     transition: opacity 0.5s;
 }
 
 .text-container{
-    max-width: 600px;
-    margin-top: 7%;
+    max-width: 550px;
+    margin-top: 4%;
     margin-left: 50%;
 }
 
 .text-container>h1 {
-    font-size: 70px;
+    font-size: 60px;
     font-weight: 400;
 }
 
@@ -96,6 +132,7 @@ span {
     color: #fff;
     font-size: 18px;
     margin-top: 10px;
+    margin-bottom: 50px;
     border-radius: 30px;
 }
 
