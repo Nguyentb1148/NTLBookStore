@@ -2,10 +2,10 @@
 
 @{
     ViewData["Title"] = "Books";
+    Layout = "_layout";
 }
 
 <h1>List of books</h1>
-
 <div class="row row-cols-xl-6 row-cols-lg-5 row-cols-md-4 row-cols-sm-3 row-cols-2">
     @foreach (var item in Model)
     {
@@ -17,8 +17,20 @@
                     <p class="card-text">Price: <span class="fw-bold">&#36;@item.Price</span></p>
                 </div>
                 <div class="card-footer">
-                    <button name="addToCartBtn" class="btn btn-primary px-1" onclick="addItem(@item.Id, 1)">Add</button>
-                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
+                    @if (User.IsInRole(Roles.User))
+                    {
+                        <button name="addToCartBtn" class="btn btn-primary px-1" onclick="addItem(@item.Id, 1)">Add</button>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
+                    }
+                    @if (User.IsInRole(Roles.StoreOwner))
+                    {
+                        
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
+                    }
+                    @if (User.IsInRole(Roles.Admin))
+                    {
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
+                    }
                 </div>
             </div>
         </div>
