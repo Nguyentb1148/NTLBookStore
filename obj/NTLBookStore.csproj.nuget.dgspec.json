@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\NTLBookStore\\NTLBookStore.csproj": {}
+    "/Users/tranbaonguyen/NTLBookStore/NTLBookStore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\NTLBookStore\\NTLBookStore.csproj": {
+    "/Users/tranbaonguyen/NTLBookStore/NTLBookStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\NTLBookStore\\NTLBookStore.csproj",
+        "projectUniqueName": "/Users/tranbaonguyen/NTLBookStore/NTLBookStore.csproj",
         "projectName": "NTLBookStore",
-        "projectPath": "C:\\Users\\Admin\\NTLBookStore\\NTLBookStore.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\NTLBookStore\\obj\\",
+        "projectPath": "/Users/tranbaonguyen/NTLBookStore/NTLBookStore.csproj",
+        "packagesPath": "/Users/tranbaonguyen/.nuget/packages/",
+        "outputPath": "/Users/tranbaonguyen/NTLBookStore/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/tranbaonguyen/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -58,7 +56,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.407\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.407/RuntimeIdentifierGraph.json"
         }
       }
     }

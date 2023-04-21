@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "d0tIaA5JJAnhfX7l7wWAdu8aKWajEdsvnCMDx3LmzJhEj/Ttw/dhxE28WwR2bCSY8ampuog+jWvkd5QSVdmEjA==",
+  "dgSpecHash": "1im5ltKzcBxSktMlil365KUIIoQi1AtTJvdS7WJdhX2qWTCeO6UhV1t/TF9xXHsN2+wsNUL15TiGEP7KQoRiVQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\NTLBookStore\\NTLBookStore.csproj",
+  "projectFilePath": "/Users/tranbaonguyen/NTLBookStore/NTLBookStore.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
