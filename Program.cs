@@ -12,7 +12,7 @@ if (!Directory.Exists(FileUploadHelper.BookImageBaseDirectory))
 {
     Directory.CreateDirectory(FileUploadHelper.BookImageBaseDirectory);
 }
-var connectionString = builder.Configuration.GetConnectionString("NguyenMacConnectionSql") ?? throw new InvalidOperationException("Connection string 'NTLBookStoreContextConnection' not found.");
+var connectionString = builder.Configuration.GetConnectionString("LocConnectionSql") ?? throw new InvalidOperationException("Connection string 'NTLBookStoreContextConnection' not found.");
 builder.Services.AddDbContext<NTLBookStoreContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
@@ -27,8 +27,6 @@ builder.Services.AddScoped<IAutoCreateDb, AutoCreateDb>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
-
-
 
 using (var scope = app.Services.CreateScope())
 {
