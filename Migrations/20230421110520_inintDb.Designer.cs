@@ -12,8 +12,13 @@ using NTLBookStore.Data;
 namespace NTLBookStore.Migrations
 {
     [DbContext(typeof(NTLBookStoreContext))]
+<<<<<<<< HEAD:Migrations/20230420035611_initDb.Designer.cs
     [Migration("20230420035611_initDb")]
     partial class initDb
+========
+    [Migration("20230421110520_inintDb")]
+    partial class inintDb
+>>>>>>>> origin/thang:Migrations/20230421110520_inintDb.Designer.cs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

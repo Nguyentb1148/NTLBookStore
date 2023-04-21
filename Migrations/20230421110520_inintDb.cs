@@ -5,7 +5,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NTLBookStore.Migrations
 {
+<<<<<<<< HEAD:Migrations/20230420035611_initDb.cs
     public partial class initDb : Migration
+========
+    public partial class inintDb : Migration
+>>>>>>>> origin/thang:Migrations/20230421110520_inintDb.cs
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
