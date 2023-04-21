@@ -13,24 +13,71 @@
 <body>
 <header>
     <div class="hero">
-        <nav>
-            <a href="" id="logo">FPT BOOK</a>
-            <ul>
-                <li><a href=""></a>Books</li>
-                <li><a href=""></a>Help</li>
-                <li><a href=""></a>Order</li>
-                <li><a href=""></a>Cart</li>
-                <li class="account">
-                    <a href="javascript:void(0)" class="dropbtn">Account</a>
+        <div class="container">
+            <nav>
+                <a href="" id="logo">FPT BOOK</a>
+                <ul>
+                    <li><a class="nav-item" asp-area="" asp-controller="Home" asp-action="Index">Book</a></li>
+                    <li><a class="nav-item" asp-area="" asp-controller="Home" asp-action="Index">Help</a></li>
+                    <li><a class="nav-item" asp-area="" asp-controller="Home" asp-action="Index">Login</a></li>
+                    <li><a class="nav-item" asp-area="" asp-controller="Home" asp-action="Index">Register</a></li>
+                    @*<li class="nav-item">
+                        <a href="javascript:void(0)" class="dropbtn">Account</a>
                         <div class="dropdown-content">
-                          <a href="#">Login</a>
-                          <a href="#">Register</a>
+                            <a href="#">Login</a>
+                            <a href="#">Register</a>
                         </div>
-                </li>
-            </ul>
-            <button type="button" onclick="toggleBtn()" id="btn"><span></span></button>
-        </nav>
-        <div class="lamp-container">
+                    </li>*@
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Books" asp-action="Index">Books</a>
+                    </li>
+                    @if (User.IsInRole(Roles.StoreOwner))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="StoreOwner" asp-controller="Store" asp-action="Index">Store</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="StoreOwner" asp-controller="Books" asp-action="Index">Store Books</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="StoreOwner" asp-controller="Orders" asp-action="Index">Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="StoreOwner" asp-controller="RequestCategories" asp-action="Index">Requests New Category</a>
+                        </li>
+                    }
+                    @if (User.IsInRole(Roles.Admin))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="RequestCategories" asp-action="Index">Requests New Category</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Accounts" asp-action="Index">Accounts</a>
+                        </li>
+                    }
+                    @if (User.IsInRole(Roles.User))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="Index">Orders</a>
+                        </li>
+                    }
+                </ul>
+                <form class="form-inline">
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                
+
+                @*<button type="button" onclick="toggleBtn()" id="btn"><span></span></button>*@
+            </nav>
+            
+        </div>
+        
+        @*<div class="lamp-container">
             <img src="img/images/lamp.png" alt="lamp" class="lamp">
             <img src="img/images/light.png" alt="light" class="light" id="light">
         </div>
@@ -38,7 +85,7 @@
             <h1>"Light up" the souls who love books</h1>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
             <a href="">Check All Products</a>
-        </div>
+        </div>*@
     </div>
     @*--------------------------*@
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -113,17 +160,141 @@
         &copy; 2023 - NTLBookStore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
     </div>
 </footer>
-<script>
+@*<script>
     var btn = document.getElementById("btn");
     var light = document.getElementById("light");
     function toggleBtn(){
         btn.classList.toggle("active");
         light.classList.toggle("on");
     }
-</script>
+</script>*@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+
+@*html {
+font-size: 14px;
+}
+
+@media (min-width: 768px) {
+html {
+font-size: 16px;
+}
+}
+
+html {
+position: relative;
+min-height: 100%;
+}
+
+
+
+*{
+margin: 0;
+padding: 0;
+font-family: 'poppins', sans-serif;
+box-sizing: border-box;
+}
+
+.hero{
+background: #1d2026;
+width: 100%;
+color: #fff;
+position: relative;
+}
+
+.container{
+padding-left: 0px;
+padding-right: 0px;
+}
+
+nav{
+display: flex;
+align-items: center;
+}
+
+nav ul{
+/*    list-style-type: none;*/
+/*    overflow: hidden;*/
+flex: 1;
+text-align: center;
+padding-top: 15px;
+padding-left: 220px;
+}
+nav ul .nav-link {
+color: white;
+}
+
+nav ul li{
+display: inline-block;
+list-style: none;
+margin:  0 20px;
+}
+
+.dropbtn {
+display: inline-block;
+color: white;
+text-decoration: none;
+}
+.nav-item{
+display: inline-block;
+color: white;
+text-decoration: none;
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: #f9f9f9;
+min-width: 70px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+z-index: 1;
+border-radius: 0px 0px 5px 5px;
+}
+
+.dropdown-content a {
+color: black;
+padding: 12px 5px 12px 5px;
+text-decoration: none;
+display: block;
+text-align: left;
+}
+
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+li a:hover, .nav-item:hover {
+color: #00986f;
+}
+
+li a:hover, .nav-item:hover .dropbtn {
+color: #00986f;
+}
+
+
+.nav-item:hover .dropdown-content {
+display: block;
+border-radius: 0px 0px 5px 5px;
+}
+
+.form-inline {
+display: inline-block;
+text-align: right;
+float: right;
+}
+
+.form-control{
+width: 40%;
+display: inline-block;
+}
+
+#logo{
+display: inline-block;
+text-decoration: none;
+color: white;
+float: left;
+}*@
