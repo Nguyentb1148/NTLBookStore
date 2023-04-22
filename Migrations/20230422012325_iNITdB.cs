@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NTLBookStore.Migrations
 {
-    public partial class initDb : Migration
+    public partial class iNITdB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
