@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="~/css/home.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/NTLBookStore.styles.css" asp-append-version="true"/>
     <link rel="stylesheet" href="../wwwroot/css/Test.css" asp-append-version="true"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
 <header>
@@ -50,20 +53,28 @@
                     }
                     @if (User.IsInRole(Roles.User))
                     {
+                        <li><a class="nav-item" id="help_item" asp-area="" asp-controller="Books" asp-action="Help">Help</a></li>
                         <li class="nav-item">
                             <a class="nav-item"id="orders_item" asp-controller="Orders" asp-action="Index">Orders</a>
                         </li>
-                        <li><a class="nav-item" id="help_item" asp-area="" asp-controller="Books" asp-action="Help">Help</a></li>
                         <form class="form-inline">
                             <li class="nav-item">
                                 <partial name="_SearchPartial" model="model" />
                                 @*<button class="btn btn-outline-success my-2 my-sm-0" id="search_button" type="submit">Search</button>*@
                             </li>
                         </form>
+                        
                     }
+                     @if (User.Identity?.IsAuthenticated is false or null || User.IsInRole(Roles.User))
+                     {
+                         <div class="nav-item">
+                             <a class="nav-item" asp-area="" asp-controller="Cart" asp-action="Index">Cart</a>
+                         </div>
+                     }
                      <partial name="_LoginPartial"/>
                 </ul>
                 
+
                 @*<button type="button" onclick="toggleBtn()" id="btn"><span></span></button>*@
             </nav>
             

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rABGKD+0p8x29X1RFx6+OwEslpzux+M0W03t1yLdZFM=",
+  "Hash": "vvn+WZ7u0l6X6fdPid4hpx/IjH2nFcAK+M87fxK+hu4=",
   "Source": "NTLBookStore",
   "BasePath": "_content/NTLBookStore",
   "Mode": "Default",
@@ -1343,6 +1343,23 @@
       "OriginalItemSpec": "wwwroot\\img\\books\\hhfodo0f.yq0..jpg"
     },
     {
+      "Identity": "C:\\Users\\Admin\\NTLBookStore\\wwwroot\\img\\books\\hr.jpg",
+      "SourceId": "NTLBookStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\NTLBookStore\\wwwroot\\",
+      "BasePath": "_content/NTLBookStore",
+      "RelativePath": "img/books/hr.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\books\\hr.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Admin\\NTLBookStore\\wwwroot\\img\\books\\hszersks.zi2..webp",
       "SourceId": "NTLBookStore",
       "SourceType": "Discovered",
@@ -1511,6 +1528,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\books\\ou2mjqj5.yl0..png"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\NTLBookStore\\wwwroot\\img\\books\\pjpjbk0e.fge..jpeg",
+      "SourceId": "NTLBookStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\NTLBookStore\\wwwroot\\",
+      "BasePath": "_content/NTLBookStore",
+      "RelativePath": "img/books/pjpjbk0e.fge..jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\books\\pjpjbk0e.fge..jpeg"
     },
     {
       "Identity": "C:\\Users\\Admin\\NTLBookStore\\wwwroot\\img\\books\\ppjc41zm.hwg..jpeg",
@@ -1715,23 +1749,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\books\\t3g0fdz2.uqt..jpg"
-    },
-    {
-      "Identity": "C:\\Users\\Admin\\NTLBookStore\\wwwroot\\img\\books\\vcaojd2t.hq3..jpg",
-      "SourceId": "NTLBookStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\NTLBookStore\\wwwroot\\",
-      "BasePath": "_content/NTLBookStore",
-      "RelativePath": "img/books/vcaojd2t.hq3..jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\books\\vcaojd2t.hq3..jpg"
     },
     {
       "Identity": "C:\\Users\\Admin\\NTLBookStore\\wwwroot\\img\\books\\vz14rrxw.1bw..jpeg",

@@ -83,11 +83,11 @@
             </dd>
             
         </dl>
-        <div>
+        <div class="detail_button">
             @if (User.IsInRole(Roles.User))
             {
-                <button id="addToCartBtn" class="btn btn-primary px-1" onclick="addItem(@Model.Id, 1)">Add</button>
-                <a asp-action="Index">Back to List</a>
+                <button id="addToCartBtn" class="btn btn-primary" onclick="addItem(@Model.Id, 1)">Add to Cart</button>
+                <a class="btn btn-primary" asp-action="Index">Back to List</a>
             }
              @if (User.IsInRole(Roles.StoreOwner))
             {
@@ -113,6 +113,37 @@
         </div>
     </div>
 </div>
+
+@*--------------Style--------------*@
+
+<style>
+    .detail_button button{
+        border-radius: 50px;
+        padding: 6px 10px 6px 10px;
+        background-color: limegreen;
+        border-color: limegreen;
+    }
+    
+    .detail_button a{
+        border-radius: 50px;
+        padding: 6px 10px 6px 10px;
+        background-color: #ff8000;
+        border-color: #ff8000;
+        color: white;
+        text-decoration: none;
+    }
+    
+    .pb-3 {
+      padding-left: 16px;
+      text-align: left;
+    }
+</style>
+
+
+
+
+
+@*--------------JavaScripts--------------*@
 @section Scripts {
     <script src="~/js/cart.js" asp-append-version="true"></script>
     <script type="text/javascript">
@@ -127,4 +158,5 @@
         }
     </script>
 }
+
 

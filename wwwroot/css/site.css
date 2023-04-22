@@ -16,7 +16,7 @@ html {
 *{
   margin: 0;
   padding: 0;
-  font-family: 'poppins', sans-serif;
+  font-family: 'Sora', sans-serif;
   box-sizing: border-box;
 }
 
@@ -24,6 +24,11 @@ html {
   padding-top: 50px;
   
   padding-bottom: 300px !important;
+}
+
+#name_screen {
+  padding-left: 16px;
+  text-align: left;
 }
 
 .hero{
