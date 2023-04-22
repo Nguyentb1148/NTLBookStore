@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    // Layout = "_Layout";
+    SearchViewModel model = SearchViewModel.BookSearchViewModel;
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
@@ -17,58 +21,49 @@
             <nav>
                 <a href="" id="logo">FPT BOOK</a>
                 <ul>
-                    <li><a class="nav-item" asp-area="" asp-controller="Home" asp-action="Index">Book</a></li>
-                    <li><a class="nav-item" asp-area="" asp-controller="Home" asp-action="Index">Help</a></li>
-                    <li><a class="nav-item" asp-area="" asp-controller="Home" asp-action="Index">Login</a></li>
-                    <li><a class="nav-item" asp-area="" asp-controller="Home" asp-action="Index">Register</a></li>
-                    @*<li class="nav-item">
-                        <a href="javascript:void(0)" class="dropbtn">Account</a>
-                        <div class="dropdown-content">
-                            <a href="#">Login</a>
-                            <a href="#">Register</a>
-                        </div>
-                    </li>*@
-                    @if (User.IsInRole(Roles.StoreOwner))
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="StoreOwner" asp-controller="Store" asp-action="Index">Store</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="StoreOwner" asp-controller="Books" asp-action="Index">Store Books</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="StoreOwner" asp-controller="Orders" asp-action="Index">Orders</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="StoreOwner" asp-controller="RequestCategories" asp-action="Index">Requests New Category</a>
-                        </li>
-                    }
+                    <li><a class="nav-item" asp-area="" asp-controller="Books" asp-action="Index">Book</a></li>
+                    
+                   
+                     @if (User.IsInRole(Roles.StoreOwner))
+                     {
+                         <li class="nav-item">
+                             <a class="nav-item" asp-area="StoreOwner" asp-controller="Store" asp-action="Index">Store</a>
+                         </li>
+                         <li class="nav-item">
+                             <a class="nav-item" asp-area="StoreOwner" asp-controller="Books" asp-action="Index">Store Books</a>
+                         </li>
+                         <li class="nav-item">
+                             <a class="nav-item" asp-area="StoreOwner" asp-controller="Orders" asp-action="Index">Orders</a>
+                         </li>
+                         <li class="nav-item">
+                             <a class="nav-item" asp-area="StoreOwner" asp-controller="RequestCategories" asp-action="Index">Requests New Category</a>
+                         </li>
+                     }
                     @if (User.IsInRole(Roles.Admin))
                     {
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="RequestCategories" asp-action="Index">Requests New Category</a>
+                            <a class="nav-item" asp-area="Admin" asp-controller="RequestCategories" asp-action="Index">Requests New Category</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Accounts" asp-action="Index">Accounts</a>
+                            <a class="nav-item" asp-area="Admin" asp-controller="Accounts" asp-action="Index">Account List</a>
                         </li>
                     }
                     @if (User.IsInRole(Roles.User))
                     {
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="Index">Orders</a>
+                            <a class="nav-item"id="orders_item" asp-controller="Orders" asp-action="Index">Orders</a>
                         </li>
-                        
-                    
+                        <li><a class="nav-item" id="help_item" asp-area="" asp-controller="Books" asp-action="Help">Help</a></li>
+                        <form class="form-inline">
+                            <li class="nav-item">
+                                <partial name="_SearchPartial" model="model" />
+                                @*<button class="btn btn-outline-success my-2 my-sm-0" id="search_button" type="submit">Search</button>*@
+                            </li>
+                        </form>
                     }
-                    
-                    
+                     <partial name="_LoginPartial"/>
                 </ul>
-                <form class="form-inline">
-                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
                 
-
                 @*<button type="button" onclick="toggleBtn()" id="btn"><span></span></button>*@
             </nav>
             
@@ -85,7 +80,7 @@
         </div>*@
     </div>
     @*--------------------------*@
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
         <div class="container-fluid">
             <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AppDev</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -141,7 +136,7 @@
                 <partial name="_LoginPartial"/>
             </div>
         </div>
-    </nav>
+    </nav>*@
     <div class="container-md justify-content-center">
         @await RenderSectionAsync("Search", required: false)
     </div>
@@ -152,11 +147,56 @@
     </main>
 </div>
 
-<footer class="border-top footer text-muted">
-    <div class="container">
-        &copy; 2023 - NTLBookStore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-    </div>
-</footer>
+<div class="">
+    <!----------- Footer ------------>
+    <footer class="footer-bs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 footer-brand animated">
+                    <h2>FPT BOOK</h2>
+                    <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
+                    <p>© 2014 BS3 UI Kit, All rights reserved</p>
+                </div>
+                <div class="col-md-4 footer-nav animated fadeInUp">
+                    <h4>Menu —</h4>
+                    <div class="col-md-6">
+                        <ul class="pages">
+                            <li><a href="#">Travel</a></li>
+                            <li><a href="#">Nature</a></li>
+                            <li><a href="#">Explores</a></li>
+                            <li><a href="#">Science</a></li>
+                            <li><a href="#">Advice</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contacts</a></li>
+                            <li><a href="#">Terms & Condition</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2 footer-social animated fadeInDown">
+                    <h4>Follow Us</h4>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">RSS</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-ns animated fadeInRight">
+                    <h4>Newsletter</h4>
+                    <p>A rover wearing a fuzzy suit doesn’t alarm the real penguins</p>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+
+
+</div>
 @*<script>
     var btn = document.getElementById("btn");
     var light = document.getElementById("light");
