@@ -4,5 +4,6 @@
 
 <form method="get" action="@Model?.Action">
     <input asp-for="Type" type="hidden" />
-    <input asp-for="KeyWord" class="form-control" placeholder="Searching..." />
+    <input asp-for="KeyWord" class="form-control" id="search_form" placeholder="Searching..." />
+    <button class="btn btn-primary my-2 my-sm-0" id="search_button" type="submit">Search</button>
 </form>

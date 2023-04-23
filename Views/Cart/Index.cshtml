@@ -2,13 +2,14 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "_layout";
 }
 
 <h1>Cart</h1>
 
-<p>
+<div class="checkout_button">
     <a asp-action="Checkout" class="btn btn-primary">Checkout</a>
-</p>
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -52,3 +53,12 @@
     </tbody>
 </table>
 
+<style>
+    .checkout_button a{
+            border-radius: 50px;
+            padding: 6px 10px 6px 10px;
+            background-color: limegreen;
+            border-color: limegreen;
+    }
+        
+</style>

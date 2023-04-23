@@ -21,19 +21,19 @@
            
 
                         <!-- Email input -->
-                        <div class="form-outline mb-4">
-                            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+                        <div class="form-outline mb-3">
                             <label asp-for="Input.Email" class="form-label"></label>
+                            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true"/>
                             <span asp-validation-for="Input.Email" class="text-danger"></span>
-                            
+
                         </div>
 
                         <!-- Password input -->
-                        <div class="form-outline mb-4">
-                            <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" />
+                        <div class="form-outline mb-3">
                             <label asp-for="Input.Password" class="form-label"></label>
+                            <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true"/>
                             <span asp-validation-for="Input.Password" class="text-danger"></span>
-                            </div>
+                        </div>
 
                         <!-- Checkbox -->
                         <div class="form-check d-flex justify-content-center mb-4">
@@ -45,7 +45,7 @@
                         </div>
                         
                         <!-- Submit button -->
-                        <div>
+                        <div class="login_button">
                             <button id="login-submit" type="submit" class="btn btn-primary btn-block mb-4">Log in</button>
                         </div>
                     </form>
@@ -54,7 +54,7 @@
         </div>
 
         <div class="col-lg-6 mb-5 mb-lg-0">
-            <img src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg" class="w-100 rounded-4 shadow-4"
+            <img src="https://inkythuatso.com/uploads/thumbnails/800/2021/11/logo-fpt-inkythuatso-1-01-01-14-33-35.jpg" id="img_login" class="w-100 rounded-4 shadow-4"
                  alt="" />
         </div>
     </div>
@@ -70,6 +70,22 @@
         margin-right: 0;
       }
     }
+    
+    .login_button button{
+            border-radius: 50px;
+            padding: 6px 10px 6px 10px;
+            background-color: limegreen;
+            border-color: limegreen;
+            color: white;
+            text-decoration: none;
+        }
+        
+    
+    
+    .pb-3 {
+          padding-left: 16px;
+          text-align: left;
+        }
   </style>
 
 @section Scripts {

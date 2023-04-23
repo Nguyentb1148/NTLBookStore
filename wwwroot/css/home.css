@@ -1,0 +1,35 @@
+.col {
+    padding-bottom: 70px;
+}
+
+.zoom-wrapper {
+    height: 400px;
+    overflow: hidden;
+    border-radius: 4px 4px 0px 0px;
+}
+
+.zoom-wrapper img{
+    object-fit: cover;
+    transition: transform 0.8s;
+    height: 100%;
+    cursor: pointer;
+}
+
+.zoom-wrapper:hover img{
+    transform: scale(1.1);
+    border-radius: 4px 4px 0px 0px;
+}
+
+.card-footer button{
+    border-radius: 50px;
+    padding: 6px 10px 6px 10px;
+    background-color: limegreen;
+    border-color: limegreen;
+}
+
+.card-footer a{
+    border-radius: 50px;
+    padding: 6px 10px 6px 10px;
+    background-color: #ff8000;
+    border-color: #ff8000;
+}
