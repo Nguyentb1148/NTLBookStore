@@ -5,88 +5,92 @@
     ViewData["Title"] = "Log in";
 }
 
-<h1>@ViewData["Title"]</h1>
+<section class="vh-100" style="background-color: #eee;">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-12 col-xl-11">
+                <div class="card text-black" style="border-radius: 25px;">
+                    <div class="card-body p-md-5">
+                        <div class="row justify-content-center">
+                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-<div class="container py-4">
-    <div class="row g-0 align-items-center">
-        <div class="col-lg-6 mb-5 mb-lg-0">
-            <div class="card cascading-right" style="
-            background: hsla(0, 0%, 100%, 0.55);
-            backdrop-filter: blur(30px);
-            ">
-                <div class="card-body p-5 shadow-5 text-center">
-                    <h2 class="fw-bold mb-5">Sign up now</h2>
-                    <form id="account" method="post">
-                        <!-- 2 column grid layout with text inputs for the first and last names -->
-           
+                                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Login</p>
 
-                        <!-- Email input -->
-                        <div class="form-outline mb-3">
-                            <label asp-for="Input.Email" class="form-label"></label>
-                            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true"/>
-                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                <form id="account" method="post">
 
+
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <label asp-for="Input.Email" class="form-label"></label>
+                                            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true"/>
+                                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <label asp-for="Input.Password" class="form-label"></label>
+                                            <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true"/>
+                                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="login_button">
+                                        <button id="login-submit" type="submit" class="btn btn-primary btn-block mb-4">Login</button>
+                                    </div>
+
+                                </form>
+
+                            </div>
+                            <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                                <img src="https://img.freepik.com/free-vector/young-man-sitting-armchair-reading-book_74855-6151.jpg?w=900&t=st=1682257850~exp=1682258450~hmac=bd68a444f6920e00be4b8efa6a7fff826fe2007be98e5bb2768a92d947b84856"
+                                     class="img-fluid" alt="Sample image">
+
+                            </div>
                         </div>
-
-                        <!-- Password input -->
-                        <div class="form-outline mb-3">
-                            <label asp-for="Input.Password" class="form-label"></label>
-                            <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true"/>
-                            <span asp-validation-for="Input.Password" class="text-danger"></span>
-                        </div>
-
-                        <!-- Checkbox -->
-                        <div class="form-check d-flex justify-content-center mb-4">
-                            <label asp-for="Input.RememberMe" class="form-label">
-                                <input class="form-check-input" asp-for="Input.RememberMe" />
-                                @Html.DisplayNameFor(m => m.Input.RememberMe)
-                            </label>
-                            
-                        </div>
-                        
-                        <!-- Submit button -->
-                        <div class="login_button">
-                            <button id="login-submit" type="submit" class="btn btn-primary btn-block mb-4">Log in</button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="col-lg-6 mb-5 mb-lg-0">
-            <img src="https://inkythuatso.com/uploads/thumbnails/800/2021/11/logo-fpt-inkythuatso-1-01-01-14-33-35.jpg" id="img_login" class="w-100 rounded-4 shadow-4"
-                 alt="" />
-        </div>
     </div>
-</div>
+</section>
 
 <style>
-    .cascading-right {
-      margin-right: -50px;
-    }
-
-    @Component (max-width: 991.98px) {
-      .cascading-right {
-        margin-right: 0;
-      }
-    }
+     .cascading-right {
+          margin-right: -50px;
+        }
     
-    .login_button button{
-            border-radius: 50px;
-            padding: 6px 10px 6px 10px;
-            background-color: limegreen;
-            border-color: limegreen;
-            color: white;
-            text-decoration: none;
+        @Component (max-width: 991.98px) {
+          .cascading-right {
+            margin-right: 0;
+          }
         }
         
-    
-    
-    .pb-3 {
-          padding-left: 16px;
-          text-align: left;
-        }
-  </style>
+        .login_button button{
+                border-radius: 50px;
+                padding: 6px 28px 6px 28px;
+                background-color: limegreen;
+                border-color: limegreen;
+                color: white;
+                text-decoration: none;
+            }
+            .login_button{
+            text-align: center;
+            }
+            
+        
+        
+        .pb-3 {
+                      padding-left: 16px;
+                      padding-top: 20px !important;
+                      text-align: left;
+                    }
+                    
+</style>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

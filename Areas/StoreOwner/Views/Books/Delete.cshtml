@@ -62,9 +62,24 @@
                
            </dl>
     
-    <form asp-action="Delete">
+    <form asp-action="Delete" class="delete_button">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>
 </div>
+
+<style>
+.delete_button{
+padding-top: 20px ;
+}
+    .delete_button .btn{
+        border-radius: 50px;
+        padding: 6px 28px 6px 28px;
+    }
+    
+    .pb-3 {
+          padding-left: 16px;
+          text-align: left;
+        }
+</style>
