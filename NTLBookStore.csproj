@@ -21,10 +21,6 @@
       <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />
       <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
     </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="wwwroot\img\books" />
-    </ItemGroup>
     <ItemGroup>
         <None Include="Views\**\*" />
         <None Include="wwwroot\img\images\lamp.png" />
@@ -38,6 +34,9 @@
       <_ContentIncludedByDefault Remove="Pages\Cart\Index.cshtml" />
       <_ContentIncludedByDefault Remove="Pages\Orders\Details.cshtml" />
       <_ContentIncludedByDefault Remove="Pages\Orders\Index.cshtml" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="wwwroot\img\books" />
     </ItemGroup>
 
 </Project>
