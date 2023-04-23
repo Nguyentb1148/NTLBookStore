@@ -4,8 +4,43 @@
 
 <h1>List of accounts</h1>
 
-<a class="btn btn-primary mb-3" asp-action="Customers">View Customers</a> 
-<br />
-<a class="btn btn-primary mb-3" asp-action="StoreOwners">View StoreOwners</a>
-<br />
-<a class="btn btn-primary mb-3" asp-action="ResetPassword">Reset Password</a>
+<div class="customer_acc">
+    <a class="btn btn-primary mb-3" asp-action="Customers">View Customers</a>
+</div>
+<div class="storeowner_acc">
+    <a class="btn btn-primary mb-3" asp-action="StoreOwners">View StoreOwners</a>
+</div>
+<div class="reset_password">
+    <a class="btn btn-primary mb-3" asp-action="ResetPassword">Reset Password</a>
+</div>
+
+
+<style>
+    .customer_acc a{
+        border-radius: 50px;
+        padding: 6px 10px 6px 10px;
+        color: white;
+        text-decoration: none;
+    }
+    .storeowner_acc a{
+            border-radius: 50px;
+            padding: 6px 10px 6px 10px;
+            background-color: #ff8000;
+            border-color: #ff8000;
+            color: white;
+            text-decoration: none;
+        }
+    .reset_password a{
+            border-radius: 50px;
+            padding: 6px 10px 6px 10px;
+            background-color: limegreen;
+            border-color: limegreen;
+            color: white;
+            text-decoration: none;
+        }
+    
+    .pb-3 {
+      padding-left: 16px;
+      text-align: left;
+    }
+</style>
