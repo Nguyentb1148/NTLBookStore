@@ -27,6 +27,10 @@
     </ItemGroup>
     <ItemGroup>
         <None Include="Views\**\*" />
+        <None Include="wwwroot\img\images\lamp.png" />
+        <None Include="wwwroot\img\images\light.png" />
+        <None Include="wwwroot\img\images\logo.png" />
+        <None Include="wwwroot\img\images\menu.png" />
     </ItemGroup>
     <ItemGroup>
       <_ContentIncludedByDefault Remove="Pages\Cart\Checkout.cshtml" />

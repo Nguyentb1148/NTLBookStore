@@ -1,102 +1,131 @@
-﻿@{
-    // Layout = "_Layout";
-    SearchViewModel model = SearchViewModel.BookSearchViewModel;
-}
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"] - NTLBookStore</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/AppDev.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/home.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/NTLBookStore.styles.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="../wwwroot/css/Test.css" asp-append-version="true"/>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AppDev</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Books" asp-action="Index">Books</a>
-                        </li>
-                        
-                        @if (User.IsInRole(Roles.StoreOwner))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="StoreOwner" asp-controller="Store" asp-action="Index">Store</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="StoreOwner" asp-controller="Books" asp-action="Index">Store Books</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="StoreOwner" asp-controller="Orders" asp-action="Index">Orders</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="StoreOwner" asp-controller="RequestCategories" asp-action="Index">Requests New Category</a>
-                            </li>
-                        }
-                        @if (User.IsInRole(Roles.Admin))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="RequestCategories" asp-action="Index">Requests New Category</a>
-                            </li>
-                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="Accounts" asp-action="Index">Accounts</a>
-                            </li>
-                        }
-                        @if (User.IsInRole(Roles.User))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="Index">Orders</a>
-                            </li>
-                            <li class="nav-item">
-                                <partial name="_SearchPartial" model="model" />
-                            </li>
-                            
-                        }
-                    </ul>
-                    @if (User.Identity?.IsAuthenticated is false or null || User.IsInRole(Roles.User))
-                    {
-                        <div class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Books" asp-action="Help">Help</a>
-                        </div>
-                        <div class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Cart" asp-action="Index">Cart</a>
-                        </div>
-                       
-                    }
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
-        </nav>
-        <div class="container-md justify-content-center">
-            @await RenderSectionAsync("Search", required: false)
-        </div>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - AppDev - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+<header>
+    <div class="hero">
+        <nav>
+            <a href="" id="logo">FPT BOOK</a>
+            <ul>
+                <li><a href=""></a>Books</li>
+                <li><a href=""></a>Help</li>
+                <li><a href=""></a>Order</li>
+                <li><a href=""></a>Cart</li>
+                <li class="account">
+                    <a href="javascript:void(0)" class="dropbtn">Account</a>
+                        <div class="dropdown-content">
+                          <a href="#">Login</a>
+                          <a href="#">Register</a>
+                        </div>
+                </li>
+            </ul>
+            <button type="button" onclick="toggleBtn()" id="btn"><span></span></button>
+        </nav>
+        <div class="lamp-container">
+            <img src="img/images/lamp.png" alt="lamp" class="lamp">
+            <img src="img/images/light.png" alt="light" class="light" id="light">
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+        <div class="text-container">
+            <h1>"Light up" the souls who love books</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <a href="">Check All Products</a>
+        </div>
+    </div>
+    $1$--------------------------#1#
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AppDev</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Books" asp-action="Index">Books</a>
+                    </li>
+                    @if (User.IsInRole(Roles.StoreOwner))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="StoreOwner" asp-controller="Store" asp-action="Index">Store</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="StoreOwner" asp-controller="Books" asp-action="Index">Store Books</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="StoreOwner" asp-controller="Orders" asp-action="Index">Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="StoreOwner" asp-controller="RequestCategories" asp-action="Index">Requests New Category</a>
+                        </li>
+                    }
+                    @if (User.IsInRole(Roles.Admin))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="RequestCategories" asp-action="Index">Requests New Category</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Accounts" asp-action="Index">Accounts</a>
+                        </li>
+                    }
+                    @if (User.IsInRole(Roles.User))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="Index">Orders</a>
+                        </li>
+
+                    }
+                </ul>
+                @if (User.Identity?.IsAuthenticated is false or null || User.IsInRole(Roles.User))
+                {
+                    <div class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Cart" asp-action="Index">Cart</a>
+                    </div>
+                }
+                <partial name="_LoginPartial"/>
+            </div>
+        </div>
+    </nav>
+    <div class="container-md justify-content-center">
+        @await RenderSectionAsync("Search", required: false)
+    </div>
+</header>
+
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
+
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2023 - NTLBookStore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+</footer>
+<script>
+    var btn = document.getElementById("btn");
+    var light = document.getElementById("light");
+    function toggleBtn(){
+        btn.classList.toggle("active");
+        light.classList.toggle("on");
+    }
+</script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
