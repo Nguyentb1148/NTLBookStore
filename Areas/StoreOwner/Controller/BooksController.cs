@@ -93,7 +93,7 @@ namespace NTLBookStore.Areas.StoreOwner.Controller;
                     CategoryId = model.CategoryId,
                     Image = new(model.UploadImage.FileName, extension),
                 };
-                _context.Add(book);
+                _context.Books.Add(book);
 
                 //var randomFileName = $"{Path.GetRandomFileName()}.{extension}";
                 //var imagePath = Path.Combine(FileUploadHelper.BookImageDirectory, randomFileName);
@@ -112,7 +112,7 @@ namespace NTLBookStore.Areas.StoreOwner.Controller;
 
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Books == null)
+            if (id == null)
             {
                 return NotFound();
             }
@@ -130,19 +130,28 @@ namespace NTLBookStore.Areas.StoreOwner.Controller;
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Book book)
         {
-            if (id != book.Id)
-            {
-                return NotFound();
-            }
+            var bookFromDb = await _context.Books.FindAsync(id);
+
+            if (bookFromDb == null) return NotFound();
 
             if (ModelState.IsValid)
             {
+                bookFromDb.Title = book.Title;
+                bookFromDb.Description = book.Description;
+                bookFromDb.Author = book.Author;
+                bookFromDb.Price = book.Price;
+                bookFromDb.ReleaseDate = book.ReleaseDate;
+                // dung update cho truong image ID nha (vi theo thiet ke ben team Thang mà update cái này là nó bị null)
+                bookFromDb.Page = book.Page;
+                bookFromDb.CategoryId = book.CategoryId;
+            
 
-                _context.Update(book);
+                // _context.Update(book);  // cai nay gay ra loi nha (chi dung khi app là web api)
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));
             }
+
             ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name", book.CategoryId);
             return View(book);
         }
