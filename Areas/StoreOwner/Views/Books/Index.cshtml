@@ -6,9 +6,10 @@
 }
 
 <h1>List of books</h1>
-<p>
+<div class="create_new_book_button">
     <a class="btn btn-primary" asp-action="Create">Create new book</a>
-</p>
+</div>
+
 <table class="table">
     <thead>
     <tr>
@@ -45,3 +46,22 @@
     }
     </tbody>
 </table>
+
+<style>
+    .create_new_book_button {
+    padding-bottom: 15px;
+    }
+    .create_new_book_button a{
+        border-radius: 50px;
+        padding: 6px 10px 6px 10px;
+        background-color: limegreen;
+        border-color: limegreen;
+        color: white;
+        text-decoration: none;
+    }
+    
+    .pb-3 {
+      padding-left: 16px;
+      text-align: left;
+    }
+</style>
